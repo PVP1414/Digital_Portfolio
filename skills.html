@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills - Param Patel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="reflections.html">Reflections & Goals</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        
+        <section class="page-section">
+            <h2>Advanced Skill Development</h2>
+            
+            <div class="card-container">
+
+                <div class="card">
+                    <h3>Full Stack Web Development</h3>
+                    <p><strong>Proficiencies:</strong> Full Stack Web Development, including MERN concepts, LAMP stack (PHP), and API design.</p>
+                    
+                    <div class="code-snippet">
+                        <h5>Artifact: Backend API Endpoint (PHP)</h5>
+                        <p style="font-size: 0.9rem; color: #b4b6c4; margin-bottom: 0.5rem;">This snippet from the 'MindFlow' project handles updating a note. It demonstrates security (checking user ownership), dynamic SQL query building, and error handling.</p>
+<pre><code>
+case 'PUT':
+    // Update a note
+    parse_str(file_get_contents('php://input'), $data);
+    if (!isset($data['id'])) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Note id is required']);
+        exit;
+    }
+    $id = $data['id'];
+    $stmt = $pdo-&gt;prepare('SELECT * FROM notes WHERE id = ? AND user_id = ?');
+    $stmt-&gt;execute([$id, $user_id]);
+    if (!$stmt-&gt;fetch()) {
+        http_response_code(404);
+        echo json_encode(['error' => 'Note not found']);
+        exit;
+    }
+    
+    $updates = [];
+    $queryParams = [];
+    if (isset($data['title'])) { $updates[] = 'title = ?'; $queryParams[] = $data['title']; }
+    if (array_key_exists('content', $data)) { $updates[] = 'content = ?'; $queryParams[] = $data['content']; }
+    if (isset($data['pos_x'])) { $updates[] = 'pos_x = ?'; $queryParams[] = $data['pos_x']; }
+    if (isset($data['pos_y'])) { $updates[] = 'pos_y = ?'; $queryParams[] = $data['pos_y']; }
+
+    if (count($updates) === 0) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Nothing to update']);
+        exit;
+    }
+
+    $updates[] = 'updated_at = CURRENT_TIMESTAMP';
+    $query = 'UPDATE notes SET ' . implode(', ', $updates) . ' WHERE id = ?';
+    $queryParams[] = $id;
+    try {
+        $stmt = $pdo-&gt;prepare($query);
+        $stmt-&gt;execute($queryParams);
+        echo json_encode(['message' => 'Note updated']);
+    } catch (PDOException $e) {
+        http_response_code(500);
+        echo json_encode(['error' => 'Database error: ' . $e-&gt;getMessage()]);
+    }
+    exit;
+</code></pre>
+                    </div>
+
+                    <div class="code-snippet">
+                        <h5>Artifact: Frontend Interactivity (JavaScript)</h5>
+                        <p style="font-size: 0.9rem; color: #b4b6c4; margin-bottom: 0.5rem;">This function from 'notes.js' uses the 'interact.js' library to make the notes draggable. It shows event listeners, DOM manipulation, and asynchronous API calls to save the position.</p>
+<pre><code>
+function initDraggable() {
+    if (typeof interact === 'undefined') {
+        console.error("interact.js is not loaded.");
+        return;
+    }
+    interact('#boardView .note-item').draggable({
+        listeners: {
+            start(event) {
+                event.target.classList.add('dragging');
+            },
+            move(event) {
+                const target = event.target;
+                const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+                const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+                target.style.transform = `translate(${x}px, ${y}px)`;
+                target.setAttribute('data-x', x);
+                target.setAttribute('data-y', y);
+            },
+            end(event) {
+                event.target.classList.remove('dragging');
+                const target = event.target;
+                const id = target.dataset.noteId;
+                const pos_x = parseFloat(target.getAttribute('data-x')).toFixed(0);
+                const pos_y = parseFloat(target.getAttribute('data-y')).toFixed(0);
+                saveNotePosition(id, pos_x, pos_y);
+            }
+        },
+        modifiers: [
+            interact.modifiers.restrictRect({
+                restriction: 'parent'
+            })
+        ],
+        inertia: true
+    });
+}
+</code></pre>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Computer Architecture & Electronics</h3>
+                    <p><strong>Proficiencies:</strong> Understanding of low-level computation, timing circuits, and system design.</p>
+                    <p><strong>Artifact:</strong>
+                        <ul>
+                            <li>The <a href="projects.html">8-bit Computer Project</a>, which involved designing, building, and debugging a computer system from discrete logic components.</li>
+                        </ul>
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Problem Solving (DS & Algo)</h3>
+                    <p><strong>Proficiencies:</strong> Data Structures & Algorithms, Object-Oriented Programming, and Logical Reasoning.</p>
+                    <p><strong>Artifacts:</strong>
+                        <ul>
+                            <li><strong>Proof:</strong> <a href="https://leetcode.com/u/pvp2646/" target="_blank">My LeetCode Profile</a></li>
+                            <li><strong>Languages:</strong> C, C++, Java, and Python.</li>
+                        </ul>
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <h3>Communication & Teamwork</h3>
+                    <p><strong>Proficiencies:</strong> Presenting technical information clearly and collaborating effectively in a team environment.</p>
+                    <p><strong>Artifacts:</strong>
+                        <ul>
+                            <li>This very portfolio, created for a Communication Skills assignment.</li>
+                            <li>Led a 3-person team for a class project on database design, where I was responsible for schema development and coordinating tasks.</li>
+                        </ul>
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
