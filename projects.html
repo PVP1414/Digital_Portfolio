@@ -14,7 +14,7 @@
             <li><a href="resume.html">Resume</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="skills.html">Skills</a></li>
-            <li><a href="reflections.html">Reflections & Goals</a></li>
+            <li><a href="reflections.html">Goals</a></li>
         </ul>
     </nav>
 
@@ -26,7 +26,7 @@
 
             <div class="card-container">
 
-                <div class="card">
+                <div class="card" id="transcodex">
                     <h3>Transcodex — Media Management Platform</h3>
                     <p><strong>Overview:</strong> Built during an industrial training at iTechBrains (May–June 2026): a full-stack MERN platform for uploading, optimizing, and delivering images and videos via API, with authentication and access control.</p>
                     <p><strong>Methodologies:</strong> JWT-based auth with role-based access control (user/admin); a pluggable storage-adapter pattern (local filesystem, cloud-ready) via a factory pattern; an image pipeline with Sharp (thumbnails, multi-resolution WebP) and a video pipeline with FFmpeg for adaptive-bitrate HLS (360p–1080p); a React (Vite, Tailwind CSS) frontend with drag-and-drop upload, a media gallery, and an hls.js player.</p>
@@ -34,21 +34,21 @@
                     <p><strong>Links:</strong> <a href="https://github.com/PVP1414/Transcodex" target="_blank">Repository</a></p>
                 </div>
 
-                <div class="card">
+                <div class="card" id="code-mixed-nlp">
                     <h3>Automatic Identification & Segmentation of Code-Mixed Text</h3>
                     <p><strong>Overview:</strong> An NLP system to detect and segment code-mixed (English–Hindi–Gujarati) text at the word level in romanized/Latin-script documents.</p>
                     <p><strong>Methodologies:</strong> Designed a synthetic data generation pipeline — transliterated a Gujarati monolingual corpus into Latin script, then applied controlled code-mixing to build a labeled training corpus without manual annotation. Trained a transformer-based language identification model to tag each word's source language.</p>
                     <p><strong>Outcomes:</strong> Segmented mixed-language text into contiguous, language-specific spans, evaluated across all three languages, enabling downstream use in translation and sentiment analysis on multilingual, romanized text.</p>
                 </div>
 
-                <div class="card">
+                <div class="card" id="custom-shell">
                     <h3>Custom Unix-like Shell</h3>
                     <p><strong>Overview:</strong> A POSIX-inspired command shell written in C, supporting piping, I/O redirection, and foreground/background job control.</p>
                     <p><strong>Methodologies:</strong> Used fork, execvp, and waitpid for process/job control; handled signals (SIGINT, SIGTSTP) for suspension and interruption; implemented built-ins (cd, exit, jobs, history) and a custom tokenizer/parser with environment variable expansion.</p>
                     <p><strong>Critical Analysis:</strong> The main challenges were safe buffer handling and memory management while parsing arbitrary command-line input.</p>
                 </div>
 
-                <div class="card">
+                <div class="card" id="eight-bit-computer">
                     <h3>8-bit Computer Project</h3>
                     <p><strong>Overview:</strong> Built a functional 8-bit computer from scratch on breadboards, guided by Ben Eater's instructional series.</p>
                     <p><strong>Methodologies:</strong> Designed and assembled key components, including the clock, registers, ALU, control logic, and memory using discrete components.</p>
