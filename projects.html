@@ -27,29 +27,33 @@
             <div class="card-container">
 
                 <div class="card">
+                    <h3>Transcodex — Media Management Platform</h3>
+                    <p><strong>Overview:</strong> Built during an industrial training at iTechBrains (May–June 2026): a full-stack MERN platform for uploading, optimizing, and delivering images and videos via API, with authentication and access control.</p>
+                    <p><strong>Methodologies:</strong> JWT-based auth with role-based access control (user/admin); a pluggable storage-adapter pattern (local filesystem, cloud-ready) via a factory pattern; an image pipeline with Sharp (thumbnails, multi-resolution WebP) and a video pipeline with FFmpeg for adaptive-bitrate HLS (360p–1080p); a React (Vite, Tailwind CSS) frontend with drag-and-drop upload, a media gallery, and an hls.js player.</p>
+                    <p><strong>Outcomes:</strong> A working REST API for media CRUD and auth, backed by MongoDB/Mongoose schemas for users and media metadata.</p>
+                    <p><strong>Links:</strong> <a href="https://github.com/PVP1414/Transcodex" target="_blank">Repository</a></p>
+                </div>
+
+                <div class="card">
+                    <h3>Automatic Identification & Segmentation of Code-Mixed Text</h3>
+                    <p><strong>Overview:</strong> An NLP system to detect and segment code-mixed (English–Hindi–Gujarati) text at the word level in romanized/Latin-script documents.</p>
+                    <p><strong>Methodologies:</strong> Designed a synthetic data generation pipeline — transliterated a Gujarati monolingual corpus into Latin script, then applied controlled code-mixing to build a labeled training corpus without manual annotation. Trained a transformer-based language identification model to tag each word's source language.</p>
+                    <p><strong>Outcomes:</strong> Segmented mixed-language text into contiguous, language-specific spans, evaluated across all three languages, enabling downstream use in translation and sentiment analysis on multilingual, romanized text.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Custom Unix-like Shell</h3>
+                    <p><strong>Overview:</strong> A POSIX-inspired command shell written in C, supporting piping, I/O redirection, and foreground/background job control.</p>
+                    <p><strong>Methodologies:</strong> Used fork, execvp, and waitpid for process/job control; handled signals (SIGINT, SIGTSTP) for suspension and interruption; implemented built-ins (cd, exit, jobs, history) and a custom tokenizer/parser with environment variable expansion.</p>
+                    <p><strong>Critical Analysis:</strong> The main challenges were safe buffer handling and memory management while parsing arbitrary command-line input.</p>
+                </div>
+
+                <div class="card">
                     <h3>8-bit Computer Project</h3>
                     <p><strong>Overview:</strong> Built a functional 8-bit computer from scratch on breadboards, guided by Ben Eater's instructional series.</p>
                     <p><strong>Methodologies:</strong> Designed and assembled key components, including the clock, registers, ALU, control logic, and memory using discrete components.</p>
-                    <p><strong>Outcomes:</strong> Implemented basic machine instructions and developed a deep, practical understanding of computer architecture, binary computation, and bus systems.</p>
-                    <p><strong>Critical Analysis:</strong> The main challenge was debugging hardware issues and optimizing circuit timing, which provided a comprehensive grasp of low-level electronics.</p>
-                    <p><strong>Visuals:</strong> [Placeholder for photos of the breadboard circuits and components]</p>
-                </div>
-
-                <div class="card">
-                    <h3>Simon Game Project</h3>
-                    <p><strong>Overview:</strong> Developed an interactive web-based version of the "Simon" memory game.</p>
-                    <p><strong>Methodologies:</strong> Used HTML, CSS, JavaScript, and jQuery to manage game state, generate dynamic sequences, and validate user input.</p>
-                    <p><strong>Outcomes:</strong> A fully responsive game with sound effects, visual feedback, and a progressing level system based on user accuracy.</p>
-                    <p><strong>Critical Analysis:</strong> The core challenge was managing the game's state machine (e.g., player's turn vs. computer's turn) and synchronizing animations/sounds with the game logic.</p>
-                    <p><strong>Visuals:</strong> [Placeholder for screenshots of the game in action and a link to the live demo]</p>
-                </div>
-
-                <div class="card">
-                    <h3>Dice Game Project</h3>
-                    <p><strong>Overview:</strong> Developed an interactive two-player dice game using HTML, CSS, and JavaScript.</p>
-                    <p><strong>Methodologies:</strong> Implemented game logic for random dice roll generation and dynamic image updates based on the roll.</p>
-                    <p><strong>Outcomes:</strong> A responsive and visually appealing interface that displays real-time results and declares a winner based on the game outcomes.</p>
-                    <p><strong>Visuals:</strong> [Placeholder for screenshots of the dice game and a link to the live demo]</p>
+                    <p><strong>Outcomes:</strong> Implemented a basic instruction set and programmed simple operations, developing a deep, practical understanding of computer architecture, binary computation, and bus systems.</p>
+                    <p><strong>Critical Analysis:</strong> The main challenge was debugging timing and bus-level hardware issues, which provided a comprehensive grasp of low-level electronics.</p>
                 </div>
 
             </div>
